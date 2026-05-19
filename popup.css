@@ -1,0 +1,197 @@
+body {
+    margin: 0;
+    padding: 10px;
+    background: #111;
+    color: white;
+    font-family: sans-serif;
+    width: 305px;
+}
+
+/* ================= MAIN CONTAINERS ================= */
+
+#remote {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* ================= BUTTON BASE ================= */
+
+button {
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 26px;
+    width: 70px;
+    height: 45px;
+	line-height: 45px;
+    cursor: pointer;
+}
+
+button.text {
+    font-size: 16px;
+	line-height: 22px;
+}
+
+button.half {
+	width: 31px;
+}
+
+button:hover {
+    background: #555;
+}
+
+button:active {
+    background: #777;
+}
+
+button.hidden {
+    display: none !important;
+}
+
+/* ================= POWER ================= */
+
+button[data-key=POWER] {
+    background: #aa2222;
+}
+
+button[data-key=POWER]:hover {
+    background: #cc3333;
+}
+
+/* ================= D-PAD ================= */
+
+.dpad {
+    display: grid;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.dpad button[data-key=SETUP] { grid-column: 1; grid-row: 1; }
+.dpad button[data-key=OSC] { grid-column: 3; grid-row: 1; }
+.dpad button[data-key=QUICK] { grid-column: 3; grid-row: 1; }
+
+.dpad button[data-key=UP] { grid-column: 2; grid-row: 1; }
+.dpad button[data-key=LEFT] { grid-column: 1; grid-row: 2; }
+.dpad button[data-key=OK] { grid-column: 2; grid-row: 2; }
+.dpad button[data-key=RIGHT] { grid-column: 3; grid-row: 2; }
+.dpad button[data-key=DOWN] { grid-column: 2; grid-row: 3; }
+
+.dpad button[data-key=BACK] { grid-column: 1; grid-row: 3; }
+.dpad button[data-key=EXIT] { grid-column: 3; grid-row: 3; }
+
+.dpad button[data-key="OK"] {
+    background: #444;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+/* ================= NUMERIC GRID ================= */
+
+.num-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 70px);
+    gap: 8px;
+    justify-items: center;
+	justify-content: center;
+}
+
+.num-grid button {
+    width: 100%;
+}
+
+/* ================= MEDIA CONTROLS ================= */
+
+.row.media button {
+    background: #2a2a3a;
+}
+
+.row.media button:hover {
+    background: #3a3a55;
+}
+
+/* make play/pause slightly more visible */
+.row.media button[data-key="PLAY"],
+.row.media button[data-key="PAUSE"] {
+    background: #2f3f2f;
+}
+
+.row.media button[data-key="PLAY"]:hover,
+.row.media button[data-key="PAUSE"]:hover {
+    background: #3f5f3f;
+}
+
+/* ================= COLORS ================= */
+
+.row.colors button[data-key="RED"] {
+    background: #5a1a1a;
+}
+
+.row.colors button[data-key="GREEN"] {
+    background: #1a5a1a;
+}
+
+.row.colors button[data-key="YELLOW"] {
+    background: #5a5a1a;
+    color: #111;
+}
+
+.row.colors button[data-key="BLUE"] {
+    background: #1a2a5a;
+}
+
+/* ================= ICONIC BUTTONS ================= */
+
+button[data-key="DISK_EJECT"] {
+    background: #5a2a2a;
+}
+
+button[data-key="DISK_EJECT"]:hover {
+    background: #7a3a3a;
+}
+
+button[data-key="TOP_MENU"] {
+    background: #2a2a5a;
+}
+
+button[data-key="TOP_MENU"]:hover {
+    background: #3a3a7a;
+}
+
+/* ================= RESPONSIVE TWEAK (FIREFOX ANDROID) ================= */
+
+@media (max-width: 360px) {
+    body {
+        width: 285px;
+    }
+
+    button {
+        width: 58px;
+        height: 37px;
+		line-height: 37px;
+    }
+	
+	button.text {
+		line-height: 18px;
+        font-size: 14px;
+    }
+	
+	button.half {
+	    width: 26px;
+		font-size: 20px;
+    }
+	
+	.num-grid {
+		grid-template-columns: repeat(3, 58px);
+	}
+}
