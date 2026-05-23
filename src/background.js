@@ -21,8 +21,10 @@ browser.runtime.onMessage.addListener(async (message) => {
 
     console.log("Sending request to:", url);
 
+    // Use XHR, and NOT fetch, since fetch does not allow passing simple authentication
+    // without triggering a CORS preflight "OPTIONS" call, unsupported by our target devices...
     const xhr = new XMLHttpRequest();
-
+    
     xhr.open("GET", url, true, config.user, config.password);
 
     xhr.onload = () => {

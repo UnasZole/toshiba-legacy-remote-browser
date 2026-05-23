@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Noto Sans Symbols 2";
+    src: url("./NotoSansSymbols2-Regular.woff2") format('woff2');
+}
+
 body {
     margin: 0;
     padding: 10px;
@@ -30,19 +35,20 @@ button {
     border: none;
     border-radius: 10px;
     font-size: 26px;
+    font-family: "Noto Sans Symbols 2", "Noto Color Emoji", sans-serif;
     width: 70px;
     height: 45px;
-	line-height: 45px;
+    line-height: 45px;
     cursor: pointer;
 }
 
 button.text {
     font-size: 16px;
-	line-height: 22px;
+    line-height: 22px;
 }
 
 button.half {
-	width: 31px;
+    width: 31px;
 }
 
 button:hover {
@@ -78,7 +84,7 @@ button[data-key=POWER]:hover {
 }
 
 .dpad button[data-key=SETUP] { grid-column: 1; grid-row: 1; }
-.dpad button[data-key=OSC] { grid-column: 3; grid-row: 1; }
+.dpad button[data-key=OSC],
 .dpad button[data-key=QUICK] { grid-column: 3; grid-row: 1; }
 
 .dpad button[data-key=UP] { grid-column: 2; grid-row: 1; }
@@ -87,7 +93,8 @@ button[data-key=POWER]:hover {
 .dpad button[data-key=RIGHT] { grid-column: 3; grid-row: 2; }
 .dpad button[data-key=DOWN] { grid-column: 2; grid-row: 3; }
 
-.dpad button[data-key=BACK] { grid-column: 1; grid-row: 3; }
+.dpad button[data-key=BACK],
+.dpad button[data-key=RETURN] { grid-column: 1; grid-row: 3; }
 .dpad button[data-key=EXIT] { grid-column: 3; grid-row: 3; }
 
 .dpad button[data-key="OK"] {
@@ -103,7 +110,7 @@ button[data-key=POWER]:hover {
     grid-template-columns: repeat(3, 70px);
     gap: 8px;
     justify-items: center;
-	justify-content: center;
+    justify-content: center;
 }
 
 .num-grid button {
@@ -132,6 +139,10 @@ button[data-key=POWER]:hover {
 }
 
 /* ================= COLORS ================= */
+
+.row.colors button {
+    font-family: "Noto Color Emoji", sans-serif;
+}
 
 .row.colors button[data-key="RED"] {
     background: #5a1a1a;
@@ -168,7 +179,7 @@ button[data-key="TOP_MENU"]:hover {
     background: #3a3a7a;
 }
 
-/* ================= RESPONSIVE TWEAK (FIREFOX ANDROID) ================= */
+/* ================= RESPONSIVE TWEAK ================= */
 
 @media (max-width: 360px) {
     body {
@@ -178,20 +189,26 @@ button[data-key="TOP_MENU"]:hover {
     button {
         width: 58px;
         height: 37px;
-		line-height: 37px;
+        line-height: 37px;
     }
 	
-	button.text {
-		line-height: 18px;
+    button.text {
+        line-height: 18px;
         font-size: 14px;
     }
 	
-	button.half {
-	    width: 26px;
-		font-size: 20px;
+    button.half {
+        width: 26px;
+        font-size: 20px;
     }
 	
-	.num-grid {
-		grid-template-columns: repeat(3, 58px);
-	}
+    .num-grid {
+        grid-template-columns: repeat(3, 58px);
+    }
+}
+
+/* ================= MOBILE BEHAVIOUR ================= */
+
+html, body, button {
+    touch-action: manipulation;
 }
